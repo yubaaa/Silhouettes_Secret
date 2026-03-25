@@ -57,6 +57,7 @@ export default function Reservation() {
 
     try {
       // Send to your API route (Vercel serverless function or Neon direct)
+      //changed it 
       const response = await fetch('/api/reservation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,6 +98,7 @@ export default function Reservation() {
               <p style={{ marginBottom: 8 }}>
                 Merci <strong style={{ color: 'var(--gold-deep)' }}>{form.prenom}</strong>, votre demande de rendez-vous a bien été reçue.
               </p>
+              
               <p style={{ marginBottom: 32 }}>
                 Nous vous contacterons dans les plus brefs délais au <strong style={{ color: 'var(--text-dark)' }}>{form.telephone}</strong> pour confirmer votre rendez-vous.
               </p>
