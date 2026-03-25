@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Silhouette's Secret — Tous droits réservés</p>
+        <p>© {new Date().getFullYear()} Silhouette's Secret — Tous droits réservés - Made by Yuba</p>
         <span className="reserved">Espace 100% Féminin ✦</span>
       </div>
     </footer>

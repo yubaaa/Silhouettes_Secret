@@ -225,15 +225,19 @@ export default function Reservation() {
                 <div className="services-checkboxes">
                   {SERVICES_OPTIONS.map(svc => (
                     <label
-                      key={svc.id}
-                      className={`service-checkbox ${form.services.includes(svc.id) ? 'selected' : ''}`}
-                      onClick={() => toggleService(svc.id)}
-                    >
-                      <input type="checkbox" value={svc.id} readOnly checked={form.services.includes(svc.id)} />
-                      <div className="checkbox-custom" />
-                      <span style={{ fontSize: '0.9rem', marginRight: 4 }}>{svc.icon}</span>
-                      <span className="check-label">{svc.label}</span>
-                    </label>
+  key={svc.id}
+  className={`service-checkbox ${form.services.includes(svc.id) ? 'selected' : ''}`}
+>
+  <input
+    type="checkbox"
+    value={svc.id}
+    checked={form.services.includes(svc.id)}
+    onChange={() => toggleService(svc.id)}
+  />
+  <div className="checkbox-custom" />
+  <span style={{ fontSize: '0.9rem', marginRight: 4 }}>{svc.icon}</span>
+  <span className="check-label">{svc.label}</span>
+</label>
                   ))}
                 </div>
               </div>
@@ -280,9 +284,9 @@ export default function Reservation() {
           {/* Contact info */}
           <div style={{ marginTop: 32, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             {[
-              { icon: '📍', label: 'Adresse', value: 'À préciser' },
-              { icon: '📞', label: 'Téléphone', value: 'Nous contacter' },
-              { icon: '🕐', label: 'Horaires', value: 'Lun – Sam · 9h–19h' },
+              { icon: '📍', label: 'Adresse', value: 'Les Vergers , Rue Des Zouatna , Birkhadem' },
+              { icon: '📞', label: 'Téléphone', value: '0550 523 524' },
+              { icon: '🕐', label: 'Horaires', value: 'Sam – Jeu · 9h–18h' },
             ].map(item => (
               <div key={item.label} style={{
                 display: 'flex', alignItems: 'center', gap: 10,
