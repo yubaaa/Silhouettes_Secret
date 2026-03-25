@@ -9,7 +9,7 @@ const SERVICES_OPTIONS = [
   { id: 'nutrition', label: 'Consultation Nutrition', icon: '◈' },
   { id: 'sculpt_x', label: 'Pack SCULPT X', icon: '◇' },
   { id: 'sculpt_4x4', label: 'Pack SCULPT 4X4', icon: '◆' },
-  { id: 'start', label: 'Pack Starter', icon: '○' },
+  { id: 'starter', label: 'Pack Starter', icon: '○' },
 ]
 
 export default function Reservation() {
