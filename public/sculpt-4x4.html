@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cure SCULPT 4X4 — Silhouette's Secret</title>
+  <meta name="description" content="Transformation totale en 4 semaines : 4 technologies, 4 semaines, des résultats qui changent votre vie." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold-deep: #8B6914;
+      --gold: #B8860B;
+      --gold-light: #C9A84C;
+      --gold-pale: #D4AF6A;
+      --gold-shimmer: #E8C97A;
+      --cream: #FAF7F2;
+      --cream-dark: #F2EBE0;
+      --white: #FFFFFF;
+      --text-dark: #2C2218;
+      --text-medium: #5C4A35;
+      --text-light: #8B7355;
+      --border: rgba(184,134,11,0.22);
+      --border-strong: rgba(184,134,11,0.5);
+      --shadow-deep: 0 20px 60px rgba(44,34,24,0.13);
+      --radius: 12px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text-dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--gold-shimmer); color: var(--text-dark); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-light); border-radius: 3px; }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      background: rgba(250,247,242,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left { display: flex; flex-direction: column; }
+    .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--gold-deep); }
+    .nav-sub { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
+    .nav-badge {
+      padding: 7px 18px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: var(--radius-full); text-decoration: none;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: all 0.3s; box-shadow: 0 4px 16px rgba(139,105,20,0.28);
+    }
+    .nav-badge:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(139,105,20,0.38); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 100%);
+      display: flex; align-items: center;
+      padding: 110px 24px 70px;
+      position: relative; overflow: hidden;
+    }
+    /* Decorative large 4X4 watermark */
+    .hero::before {
+      content: '4×4';
+      position: absolute; right: -3%; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-display); font-size: clamp(14rem, 30vw, 26rem); font-weight: 300;
+      color: rgba(184,134,11,0.055); line-height: 1; pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 10% 40%, rgba(184,134,11,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 55% at 90% 70%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+    .hero-inner {
+      max-width: 1140px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    /* New badge */
+    .new-ribbon {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px 6px 10px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.12), rgba(212,175,106,0.15));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-full); margin-bottom: 20px;
+    }
+    .new-ribbon .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-light); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .new-ribbon span { font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 300; line-height: 0.95;
+      color: var(--text-dark); margin-bottom: 8px;
+    }
+    .hero-title .cure { font-size: 0.45em; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 4px; }
+    .hero-title .num { color: var(--gold-deep); font-style: italic; }
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(0.9rem, 2vw, 1.15rem); font-weight: 300; font-style: italic;
+      color: var(--text-light); margin-bottom: 24px; line-height: 1.5;
+    }
+    .hero-desc {
+      font-size: 0.92rem; font-weight: 300; line-height: 1.75;
+      color: var(--text-medium); max-width: 460px; margin-bottom: 32px;
+    }
+
+    /* 4 pillars */
+    .four-pillars {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px;
+    }
+    .pillar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 14px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); transition: all 0.25s;
+    }
+    .pillar:hover { border-color: var(--border-strong); box-shadow: 0 4px 16px rgba(184,134,11,0.08); }
+    .pillar-icon { font-size: 1rem; color: var(--gold-light); flex-shrink: 0; }
+    .pillar-text { font-size: 0.78rem; font-weight: 400; color: var(--text-dark); }
+    .pillar-num { font-family: var(--font-display); font-size: 0.85rem; font-weight: 500; color: var(--gold); margin-right: 2px; }
+
+    .hero-price-block {
+      padding: 20px 26px; margin-bottom: 32px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 24px rgba(184,134,11,0.09);
+      display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+    }
+    .hero-price-block .label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; width: 100%; margin-bottom: 4px; }
+    .hero-price-block .curr { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); }
+    .hero-price-block .amount { font-family: var(--font-display); font-size: 3.2rem; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+    .hero-price-block .old { font-size: 0.9rem; color: var(--text-light); text-decoration: line-through; }
+    .hero-price-block .save {
+      margin-left: auto;
+      padding: 5px 12px;
+      background: rgba(34,139,34,0.08); color: #2d7a2d;
+      border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 500; align-self: center;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border: none; border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s; box-shadow: 0 6px 24px rgba(139,105,20,0.32);
+      text-decoration: none;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(139,105,20,0.42); filter: brightness(1.05); }
+    .btn-outline-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; background: transparent; color: var(--gold);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s; text-decoration: none;
+    }
+    .btn-outline-gold:hover { background: rgba(184,134,11,0.06); transform: translateY(-1px); }
+
+    /* Hero visual — 4x4 card */
+    .hero-visual { position: relative; }
+    .floating-new {
+      position: absolute; top: -14px; right: 20px;
+      padding: 7px 18px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: var(--radius-full);
+      font-size: 0.64rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(139,105,20,0.35);
+    }
+    .pack-card-visual {
+      background: var(--white); border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(184,134,11,0.3), var(--shadow-deep);
+      position: relative;
+    }
+    .pack-card-visual::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold-shimmer), var(--gold-deep));
+    }
+    .card-header {
+      padding: 26px 28px 20px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.06) 0%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .card-header .tag { font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: 6px; }
+    .card-header h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--text-dark); margin-bottom: 3px; }
+    .card-header p { font-size: 0.8rem; font-weight: 300; color: var(--text-light); }
+    /* 4 stats */
+    .four-stats { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); }
+    .stat-cell { padding: 14px 10px; text-align: center; border-right: 1px solid var(--border); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell .n { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--gold-deep); line-height: 1; display: block; }
+    .stat-cell .l { font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-top: 3px; }
+    .card-includes { padding: 16px 28px 20px; }
+    .card-includes .inc-title { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); font-weight: 500; margin-bottom: 12px; }
+    .inc-row {
+      display: flex; align-items: center; gap: 9px;
+      padding: 7px 0; border-bottom: 1px solid rgba(184,134,11,0.07);
+      font-size: 0.8rem; font-weight: 300; color: var(--text-medium);
+    }
+    .inc-row:last-child { border-bottom: none; }
+    .inc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; }
+
+    /* ── Sections ── */
+    .section { padding: 80px 24px; }
+    .section-alt { background: var(--white); }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .eyebrow { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: 12px; }
+    .section-head h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--text-dark); margin-bottom: 14px; }
+    .section-head p { font-size: 0.9rem; font-weight: 300; color: var(--text-medium); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+    .divider { width: 70px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 14px auto; }
+
+    /* ── 4 Semaines timeline ── */
+    .weeks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .weeks-grid::before {
+      content: ''; position: absolute; top: 38px; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light) 20%, var(--gold-light) 80%, transparent);
+      z-index: 0;
+    }
+    .week-col { padding: 0 16px; position: relative; z-index: 1; }
+    .week-num-circle {
+      width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 6px 20px rgba(139,105,20,0.3);
+      position: relative;
+    }
+    .week-num-circle .w { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 500; }
+    .week-num-circle .n { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: white; line-height: 1; }
+    .week-col h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; text-align: center; margin-bottom: 10px; color: var(--text-dark); }
+    .week-soins { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .week-soins li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.78rem; font-weight: 300; color: var(--text-medium); line-height: 1.4;
+      padding: 8px 10px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .week-soins li .ico { font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Programme complet ── */
+    .prog-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .prog-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: all 0.35s ease;
+    }
+    .prog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-deep); border-color: var(--border-strong); }
+    .prog-card-top {
+      padding: 22px 22px 16px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.05) 0%, transparent);
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .prog-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(184,134,11,0.1); border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--gold-light);
+    }
+    .prog-card-top h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; margin-bottom: 3px; }
+    .prog-card-top p { font-size: 0.76rem; font-weight: 300; color: var(--text-light); line-height: 1.4; }
+    .prog-card-body { padding: 16px 22px 20px; }
+    .prog-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; margin-bottom: 12px;
+      background: rgba(184,134,11,0.07); border: 1px solid var(--border);
+      border-radius: var(--radius-full); font-size: 0.68rem; font-weight: 500; color: var(--gold-deep); letter-spacing: 0.06em;
+    }
+    .prog-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .prog-list li {
+      display: flex; gap: 9px; align-items: flex-start;
+      font-size: 0.8rem; font-weight: 300; color: var(--text-medium); line-height: 1.5;
+    }
+    .prog-list li::before { content: '◆'; font-size: 0.38rem; color: var(--gold-light); margin-top: 6px; flex-shrink: 0; }
+    .prog-highlight {
+      margin-top: 14px; padding: 10px 13px;
+      background: rgba(184,134,11,0.04); border-left: 2px solid var(--gold-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.76rem; font-weight: 300; font-style: italic; color: var(--gold-deep); line-height: 1.5;
+    }
+
+    /* ── Avant / Après ── */
+    .ba-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .ba-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease;
+    }
+    .ba-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+    .ba-img-wrap { display: grid; grid-template-columns: 1fr 1fr; }
+    .ba-img {
+      aspect-ratio: 3/4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .ba-img.before { background: linear-gradient(145deg, #ece5d8, #ddd5c4); border-right: 1px solid var(--border); }
+    .ba-img.after { background: linear-gradient(145deg, rgba(184,134,11,0.12), rgba(201,168,76,0.22)); }
+    .ba-tag {
+      position: absolute; bottom: 8px;
+      padding: 3px 10px; background: rgba(255,255,255,0.88);
+      border-radius: var(--radius-full);
+      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dark);
+    }
+    .ba-info { padding: 14px 16px; border-top: 1px solid var(--border); }
+    .ba-info .zone { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3px; }
+    .ba-info .result { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--text-dark); }
+    .ba-info .note { font-size: 0.7rem; font-weight: 300; color: var(--text-light); margin-top: 2px; }
+    .disclaimer { text-align: center; margin: 28px auto 0; max-width: 620px; padding: 14px 22px; background: rgba(184,134,11,0.04); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.74rem; font-weight: 300; color: var(--text-light); font-style: italic; line-height: 1.6; }
+
+    /* ── Comparatif packs ── */
+    .compare-table {
+      max-width: 800px; margin: 0 auto;
+      border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-deep);
+    }
+    .compare-head {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      background: linear-gradient(135deg, rgba(184,134,11,0.07) 0%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-head div { padding: 16px 20px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); font-weight: 500; }
+    .compare-head .active-col { color: var(--gold); background: rgba(184,134,11,0.06); }
+    .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; border-bottom: 1px solid rgba(184,134,11,0.07); }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row div { padding: 13px 20px; font-size: 0.84rem; font-weight: 300; color: var(--text-medium); }
+    .compare-row .feature { color: var(--text-dark); font-weight: 400; }
+    .compare-row .active-col { background: rgba(184,134,11,0.03); color: var(--gold-deep); font-weight: 400; }
+    .check { color: var(--gold-light); font-size: 1rem; }
+    .cross { color: #c0392b; opacity: 0.5; font-size: 0.9rem; }
+
+    /* ── Tarif ── */
+    .tarif-wrap {
+      max-width: 680px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(184,134,11,0.2), var(--shadow-deep);
+    }
+    .tarif-head {
+      padding: 28px 32px 22px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.07) 0%, rgba(212,175,106,0.05) 100%);
+      border-bottom: 1px solid var(--border); text-align: center;
+    }
+    .tarif-head h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .tarif-head p { font-size: 0.78rem; font-weight: 300; color: var(--text-light); }
+    .tarif-rows { padding: 6px 32px; }
+    .tarif-row { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid rgba(184,134,11,0.08); }
+    .tarif-row:last-child { border-bottom: none; }
+    .tarif-row .name { font-size: 0.84rem; font-weight: 300; color: var(--text-medium); }
+    .tarif-row .price { font-family: var(--font-display); font-size: 1rem; font-weight: 400; color: var(--text-dark); }
+    .tarif-row .free { color: #2d7a2d; font-size: 0.82rem; font-weight: 400; }
+    .tarif-foot {
+      padding: 22px 32px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.07) 0%, transparent);
+      border-top: 1px solid var(--border-strong);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tarif-foot .label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .tarif-foot .val { font-size: 0.74rem; font-weight: 300; color: var(--text-light); margin-top: 3px; }
+    .tarif-foot .total { display: flex; align-items: baseline; gap: 8px; }
+    .tarif-foot .curr { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); }
+    .tarif-foot .amount { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+    .tarif-foot .old { font-size: 0.88rem; color: var(--text-light); text-decoration: line-through; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.25s; }
+    .faq-item.open { border-color: var(--border-strong); }
+    .faq-q { padding: 18px 22px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 0.9rem; font-weight: 400; color: var(--text-dark); user-select: none; }
+    .faq-q:hover { color: var(--gold-deep); }
+    .faq-icon { font-size: 0.9rem; color: var(--gold-light); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; }
+    .faq-item.open .faq-a { max-height: 220px; padding: 0 22px 18px; }
+    .faq-a p { font-size: 0.84rem; font-weight: 300; color: var(--text-medium); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 100px 24px; text-align: center;
+      background: var(--text-dark); position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: 'SCULPT 4×4';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-family: var(--font-display); font-size: clamp(4rem,12vw,11rem); font-weight: 300;
+      color: rgba(255,255,255,0.03); white-space: nowrap; pointer-events: none; letter-spacing: 0.06em;
+    }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3.2rem); font-weight: 300; color: white; margin-bottom: 16px; position: relative; }
+    .cta-section h2 em { color: var(--gold-shimmer); font-style: italic; }
+    .cta-section p { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 40px; line-height: 1.7; position: relative; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-gold-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s; box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    }
+    .btn-gold-dark:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(139,105,20,0.5); filter: brightness(1.08); }
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: transparent; color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.4); color: white; background: rgba(255,255,255,0.05); }
+
+    /* ── Form ── */
+    .form-section { padding: 80px 24px; }
+    .form-container {
+      max-width: 680px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 40px;
+      box-shadow: var(--shadow-deep);
+    }
+    .form-title { font-family: var(--font-display); font-size: 2rem; font-weight: 300; margin-bottom: 6px; }
+    .form-subtitle { font-size: 0.84rem; font-weight: 300; color: var(--text-light); margin-bottom: 28px; line-height: 1.6; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px 16px; background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius); font-family: var(--font-body);
+      font-size: 0.88rem; font-weight: 300; color: var(--text-dark);
+      outline: none; transition: all 0.25s; width: 100%; appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(184,134,11,0.07); background: var(--white);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8860B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor: pointer;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-note { font-size: 0.72rem; font-weight: 300; color: var(--text-light); text-align: center; margin-top: 12px; line-height: 1.6; }
+    .success-msg { text-align: center; padding: 48px 24px; }
+    .success-msg .icon { font-size: 2.8rem; display: block; margin-bottom: 16px; }
+    .success-msg h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold-deep); margin-bottom: 10px; }
+    .success-msg p { font-size: 0.87rem; font-weight: 300; color: var(--text-medium); margin-top: 8px; }
+    .error-msg { padding: 12px 16px; background: rgba(192,57,43,0.05); border: 1px solid rgba(192,57,43,0.2); border-radius: var(--radius); font-size: 0.82rem; color: #c0392b; margin-bottom: 12px; }
+
+    /* ── Footer ── */
+    .footer-mini { background: var(--text-dark); padding: 32px 24px; text-align: center; }
+    .footer-mini p { font-size: 0.75rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+    .footer-mini a { color: var(--gold-pale); text-decoration: none; }
+    .footer-mini a:hover { color: var(--gold-shimmer); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .d1 { animation-delay: 0.08s; } .d2 { animation-delay: 0.18s; } .d3 { animation-delay: 0.28s; }
+    .d4 { animation-delay: 0.38s; } .d5 { animation-delay: 0.48s; } .d6 { animation-delay: 0.58s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 44px; }
+      .hero-visual { order: -1; }
+      .prog-grid-3 { grid-template-columns: 1fr 1fr; }
+      .weeks-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .weeks-grid::before { display: none; }
+      .ba-row { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+    }
+    @media (max-width: 620px) {
+      .hero { padding: 100px 18px 60px; }
+      .hero::before { display: none; }
+      .section { padding: 60px 18px; }
+      .prog-grid-3 { grid-template-columns: 1fr; }
+      .weeks-grid { grid-template-columns: 1fr; }
+      .four-stats { grid-template-columns: repeat(2,1fr); }
+      .ba-row { grid-template-columns: 1fr; }
+      .compare-head, .compare-row { grid-template-columns: 1.5fr 1fr 1fr; }
+      .form-container { padding: 24px 18px; }
+      .tarif-head, .tarif-rows, .tarif-foot { padding-left: 20px; padding-right: 20px; }
+      .four-pillars { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-left">
+    <span class="nav-brand">Silhouette's Secret</span>
+    <span class="nav-sub">Cabinet Féminin — Minceur & Nutrition</span>
+  </div>
+  <a href="#reservation" class="nav-badge">✦ Réserver ce programme</a>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+
+    <div class="fade-up">
+      <div class="new-ribbon"><div class="dot"></div><span>Nouveau Programme 2025</span></div>
+      <h1 class="hero-title">
+        <span class="cure">Cure</span>
+        SCULPT <span class="num">4×4</span>
+      </h1>
+      <p class="hero-tagline">4 technologies · 4 semaines · Une transformation totale</p>
+      <p class="hero-desc">
+        Notre programme le plus complet : une cure de 4 semaines intensives combinant Cavitation, Pressothérapie, Radiofréquence, Électrostimulation et suivi nutritionnel expert. Pour les femmes qui veulent des résultats profonds et durables.
+      </p>
+
+      <div class="four-pillars fade-up d2">
+        <div class="pillar"><span class="pillar-icon">◎</span><span><span class="pillar-num">4</span><span class="pillar-text"> Cavitations</span></span></div>
+        <div class="pillar"><span class="pillar-icon">✦</span><span><span class="pillar-num">4</span><span class="pillar-text"> Pressothérapies</span></span></div>
+        <div class="pillar"><span class="pillar-icon">⊛</span><span><span class="pillar-num">+2</span><span class="pillar-text"> Radiofréquences</span></span></div>
+        <div class="pillar"><span class="pillar-icon">❋</span><span><span class="pillar-num">1</span><span class="pillar-text"> Soin Visage</span></span></div>
+      </div>
+
+      <div class="hero-price-block fade-up d3">
+        <span class="label">✦ Investissement total</span>
+        <span class="curr">DA</span>
+        <span class="amount">35 000</span>
+        <span class="old">40 000 DA</span>
+        <span class="save">−5 000 DA</span>
+      </div>
+      <div class="hero-actions fade-up d4">
+        <a href="#reservation" class="btn-gold">✦ Démarrer ma transformation</a>
+        <a href="#programme" class="btn-outline-gold">Voir le programme</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up d2">
+      <div class="floating-new">✦ Nouveau</div>
+      <div class="pack-card-visual">
+        <div class="card-header">
+          <span class="tag">Programme intensif — 4 semaines</span>
+          <h2>SCULPT 4×4</h2>
+          <p>Le programme total transformation de Silhouette's Secret</p>
+        </div>
+        <div class="four-stats">
+          <div class="stat-cell"><span class="n">4</span><span class="l">Cavitations</span></div>
+          <div class="stat-cell"><span class="n">4</span><span class="l">Pressos</span></div>
+          <div class="stat-cell"><span class="n">+2</span><span class="l">Radiofréq.</span></div>
+          <div class="stat-cell"><span class="n">2</span><span class="l">Nutrition</span></div>
+        </div>
+        <div class="card-includes">
+          <p class="inc-title">Ce qui est inclus :</p>
+          <div class="inc-row"><div class="inc-dot"></div>4 séances de Cavitation 9en1</div>
+          <div class="inc-row"><div class="inc-dot"></div>4 séances de Pressothérapie</div>
+          <div class="inc-row"><div class="inc-dot"></div>+2 séances de Radiofréquence corps</div>
+          <div class="inc-row"><div class="inc-dot"></div>1 soin Visage & Cou</div>
+          <div class="inc-row"><div class="inc-dot"></div>2 consultations nutritionnelles</div>
+          <div class="inc-row"><div class="inc-dot"></div>Programme alimentaire sur-mesure 4 semaines</div>
+          <div class="inc-row"><div class="inc-dot"></div>Électrostimulation 4 séances</div>
+          <div class="inc-row"><div class="inc-dot"></div>Suivi mensuel ×2 offert</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Planning 4 semaines ── -->
+<section class="section section-alt" id="programme">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Votre planning semaine par semaine</span>
+      <h2>4 semaines · 4 transformations</h2>
+      <div class="divider"></div>
+      <p>Chaque semaine est structurée pour maximiser vos résultats de manière progressive et synergique</p>
+    </div>
+    <div class="weeks-grid">
+      <div class="week-col">
+        <div class="week-num-circle"><span class="w">Semaine</span><span class="n">1</span></div>
+        <h3>Déclencher</h3>
+        <ul class="week-soins">
+          <li><span class="ico">◎</span>1 séance Cavitation ciblée (zones prioritaires)</li>
+          <li><span class="ico">✦</span>1 séance Pressothérapie drainage initial</li>
+          <li><span class="ico">◈</span>Bilan nutritionnel + programme semaine 1</li>
+          <li><span class="ico">⚡</span>1 séance Électrostimulation activation</li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <div class="week-num-circle"><span class="w">Semaine</span><span class="n">2</span></div>
+        <h3>Intensifier</h3>
+        <ul class="week-soins">
+          <li><span class="ico">◎</span>1 séance Cavitation (intensité augmentée)</li>
+          <li><span class="ico">✦</span>1 séance Pressothérapie intensive</li>
+          <li><span class="ico">⊛</span>1 séance Radiofréquence corps (raffermissement)</li>
+          <li><span class="ico">⚡</span>1 séance Électrostimulation drainage</li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <div class="week-num-circle"><span class="w">Semaine</span><span class="n">3</span></div>
+        <h3>Sculpter</h3>
+        <ul class="week-soins">
+          <li><span class="ico">◎</span>1 séance Cavitation (zones secondaires)</li>
+          <li><span class="ico">✦</span>1 séance Pressothérapie + drainage renforcé</li>
+          <li><span class="ico">⊛</span>1 séance Radiofréquence corps (contour)</li>
+          <li><span class="ico">❋</span>1 soin Visage & Cou lifting</li>
+        </ul>
+      </div>
+      <div class="week-col">
+        <div class="week-num-circle"><span class="w">Semaine</span><span class="n">4</span></div>
+        <h3>Sublimer</h3>
+        <ul class="week-soins">
+          <li><span class="ico">◎</span>1 séance Cavitation (finition)</li>
+          <li><span class="ico">✦</span>1 séance Pressothérapie (consolidation)</li>
+          <li><span class="ico">◈</span>2e consultation nutrition + ajustements</li>
+          <li><span class="ico">⚡</span>2 séances Électrostimulation finales</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:rgba(184,134,11,0.07);border:1px solid var(--border);border-radius:var(--radius-full);">
+        <span style="font-size:0.8rem;color:var(--gold-light);">+</span>
+        <span style="font-size:0.78rem;font-weight:300;color:var(--text-medium);">Suivi mensuel ×2 offert après le programme · Accès prioritaire aux rendez-vous</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Programme détaillé ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Technologies incluses</span>
+      <h2>Chaque soin en détail</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="prog-grid-3">
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">◎</div>
+          <div>
+            <h3>Cavitation 9en1</h3>
+            <p>Destruction cellules graisseuses en profondeur</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">4 séances incluses</div>
+          <ul class="prog-list">
+            <li>Ultrasons cavitants ciblés sur vos zones à traiter</li>
+            <li>Radiofréquence bipolaire incluse pour raffermir</li>
+            <li>Vacuum aspirant pour lisser la cellulite</li>
+            <li>Électroporation et photothérapie LED</li>
+          </ul>
+          <div class="prog-highlight">Résultat : volume réduit, cellulite lissée, peau raffermie dès la 2e séance.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">✦</div>
+          <div>
+            <h3>Pressothérapie</h3>
+            <p>Drainage lymphatique & dégonflement</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">4 séances incluses</div>
+          <ul class="prog-list">
+            <li>Compression séquentielle bras, ventre et jambes</li>
+            <li>Élimine toxines et liquides de rétention</li>
+            <li>Réduit l'œdème et améliore la circulation</li>
+            <li>Amplifiée avec les cavitations pour meilleur élimination</li>
+          </ul>
+          <div class="prog-highlight">Résultat : corps dégonflé, jambes légères, silhouette affinée immédiatement.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">⊛</div>
+          <div>
+            <h3>Radiofréquence Corps</h3>
+            <p>Raffermissement cutané thermique</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">+2 séances incluses</div>
+          <ul class="prog-list">
+            <li>Énergie thermique profonde qui stimule le collagène</li>
+            <li>Resserrement de la peau des zones traitées</li>
+            <li>Action anti-relâchement ventre, cuisses, bras</li>
+            <li>Résultats qui se consolident sur 3 mois après traitement</li>
+          </ul>
+          <div class="prog-highlight">Résultat : peau ferme et tonique, contours redessinés naturellement.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">❋</div>
+          <div>
+            <h3>Soin Visage & Cou</h3>
+            <p>Lifting non-chirurgical & éclat</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">1 soin premium inclus</div>
+          <ul class="prog-list">
+            <li>Radiofréquence visage pour effet lifting immédiat</li>
+            <li>Traitement cou et mâchoire pour galbe parfait</li>
+            <li>Photothérapie LED anti-taches et éclat du teint</li>
+            <li>Micro-courants tonifiants et contour yeux</li>
+          </ul>
+          <div class="prog-highlight">Résultat : visage plus jeune, peau lumineuse, oval redefini.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">⚡</div>
+          <div>
+            <h3>Électrostimulation</h3>
+            <p>Tonification musculaire profonde</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">4 séances incluses</div>
+          <ul class="prog-list">
+            <li>Contractions musculaires profondes ciblées</li>
+            <li>Equivalent à des centaines de contractions par séance</li>
+            <li>Tonification abdomen, fessiers, cuisses</li>
+            <li>Améliore la fermeté et la définition musculaire</li>
+          </ul>
+          <div class="prog-highlight">Résultat : muscles toniques, silhouette sculptée et galbée.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-top">
+          <div class="prog-icon">◈</div>
+          <div>
+            <h3>Suivi Nutritionnel</h3>
+            <p>2 consultations avec notre nutritionniste</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-badge">2 consultations + programme 4 semaines</div>
+          <ul class="prog-list">
+            <li>Bilan initial complet semaine 1 et ajustement semaine 4</li>
+            <li>Programme alimentaire semaine par semaine adapté</li>
+            <li>Alimentation qui soutient et amplifie les effets des soins</li>
+            <li>Conseils pratiques, recettes et astuces du quotidien</li>
+          </ul>
+          <div class="prog-highlight">La nutrition est la clé de la durabilité des résultats. Elle représente 50% du succès.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Avant / Après ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Transformations réelles</span>
+      <h2>Avant & Après — Cure SCULPT 4×4</h2>
+      <div class="divider"></div>
+      <p>Des résultats profonds obtenus après les 4 semaines complètes du programme</p>
+    </div>
+    <div class="ba-row">
+      <div class="ba-card">
+        <div class="ba-img-wrap">
+          <div class="ba-img before">
+            <svg width="55" height="115" viewBox="0 0 55 115" style="opacity:0.25">
+              <ellipse cx="27" cy="16" rx="12" ry="12" fill="#8B7355"/>
+              <path d="M16 32C10 37 8 52 9 70L11 108 21 106 24 78 30 78 33 106 43 108 45 70C46 52 44 37 38 32 35 29 31 28 27 28 23 28 19 29 16 32Z" fill="#8B7355"/>
+              <path d="M9 42C3 44 0 52 2 59L6 59" fill="none" stroke="#8B7355" stroke-width="4.5"/>
+              <path d="M45 42C51 44 54 52 52 59L48 59" fill="none" stroke="#8B7355" stroke-width="4.5"/>
+            </svg>
+            <span class="ba-tag">Avant</span>
+          </div>
+          <div class="ba-img after">
+            <svg width="55" height="115" viewBox="0 0 55 115" style="opacity:0.55">
+              <ellipse cx="27" cy="16" rx="12" ry="12" fill="#8B6914"/>
+              <path d="M18 32C13 37 11 52 12 70L14 108 23 106 26 78 28 78 31 106 41 108 43 70C44 52 42 37 36 32 33 29 30 28 27 28 24 28 21 29 18 32Z" fill="#8B6914"/>
+              <path d="M12 42C6 44 3 52 5 59L8 59" fill="none" stroke="#8B6914" stroke-width="3"/>
+              <path d="M42 42C48 44 51 52 49 59L46 59" fill="none" stroke="#8B6914" stroke-width="3"/>
+            </svg>
+            <span class="ba-tag">Après</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="zone">Corps complet</div>
+          <div class="result">−8 cm · Silhouette transformée</div>
+          <div class="note">Programme complet SCULPT 4×4</div>
+        </div>
+      </div>
+
+      <div class="ba-card">
+        <div class="ba-img-wrap">
+          <div class="ba-img before">
+            <svg width="55" height="115" viewBox="0 0 55 115" style="opacity:0.25">
+              <ellipse cx="27" cy="16" rx="12" ry="12" fill="#8B7355"/>
+              <path d="M15 32C9 37 7 52 8 70L10 108 20 106 23 78 31 78 34 106 44 108 46 70C47 52 45 37 39 32 36 29 32 28 27 28 22 28 18 29 15 32Z" fill="#8B7355"/>
+              <ellipse cx="27" cy="55" rx="10" ry="8" fill="none" stroke="#8B7355" stroke-width="1.5" stroke-dasharray="3,2"/>
+            </svg>
+            <span class="ba-tag">Avant</span>
+          </div>
+          <div class="ba-img after">
+            <svg width="55" height="115" viewBox="0 0 55 115" style="opacity:0.55">
+              <ellipse cx="27" cy="16" rx="12" ry="12" fill="#8B6914"/>
+              <path d="M19 32C14 37 12 52 13 70L15 108 24 106 27 78 29 78 32 106 41 108 43 70C44 52 42 37 35 32 32 29 29 28 27 28 25 28 22 29 19 32Z" fill="#8B6914"/>
+            </svg>
+            <span class="ba-tag">Après</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="zone">Ventre & taille</div>
+          <div class="result">Ventre plat · Taille sculptée</div>
+          <div class="note">4 semaines · Cavitation + Élecrostim.</div>
+        </div>
+      </div>
+
+      <div class="ba-card">
+        <div class="ba-img-wrap">
+          <div class="ba-img before" style="background:linear-gradient(145deg,#ece5d8,#ddd5c4);">
+            <svg width="55" height="60" viewBox="0 0 55 60" style="opacity:0.22">
+              <ellipse cx="27" cy="20" rx="18" ry="16" fill="#8B7355"/>
+              <path d="M8 36C8 28 17 22 27 22C37 22 46 28 46 36" fill="#8B7355"/>
+            </svg>
+            <span class="ba-tag">Avant</span>
+          </div>
+          <div class="ba-img after" style="background:linear-gradient(145deg,rgba(184,134,11,0.14),rgba(201,168,76,0.24));">
+            <svg width="55" height="60" viewBox="0 0 55 60" style="opacity:0.55">
+              <ellipse cx="27" cy="20" rx="16" ry="14" fill="#8B6914"/>
+              <path d="M10 34C10 27 18 22 27 22C36 22 44 27 44 34" fill="#8B6914"/>
+            </svg>
+            <span class="ba-tag">Après</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="zone">Visage & Cou</div>
+          <div class="result">Visage liftéé · Teint éclat</div>
+          <div class="note">Soin visage + Radiofréquence cou</div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">* Les résultats varient selon chaque personne, le métabolisme et le respect du programme. Ces illustrations représentent des transformations typiques observées lors du programme complet SCULPT 4×4.</p>
+  </div>
+</section>
+
+<!-- ── Comparatif ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Comparaison</span>
+      <h2>SCULPT X vs SCULPT 4×4</h2>
+      <div class="divider"></div>
+      <p>Choisissez le programme adapté à vos objectifs et votre engagement</p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-head">
+        <div>Ce qui est inclus</div>
+        <div>SCULPT X</div>
+        <div class="active-col">SCULPT 4×4</div>
+      </div>
+      <div class="compare-row"><div class="feature">Cavitation 9en1</div><div>8 séances</div><div class="active-col">4 séances</div></div>
+      <div class="compare-row"><div class="feature">Pressothérapie</div><div>6 séances</div><div class="active-col">4 séances</div></div>
+      <div class="compare-row"><div class="feature">Radiofréquence corps</div><div><span class="cross">—</span></div><div class="active-col"><span class="check">✓</span> 2 séances</div></div>
+      <div class="compare-row"><div class="feature">Électrostimulation</div><div><span class="cross">—</span></div><div class="active-col"><span class="check">✓</span> 4 séances</div></div>
+      <div class="compare-row"><div class="feature">Soin Visage & Cou</div><div><span class="cross">—</span></div><div class="active-col"><span class="check">✓</span> 1 soin premium</div></div>
+      <div class="compare-row"><div class="feature">Consultation nutrition</div><div>1 bilan</div><div class="active-col">2 consultations</div></div>
+      <div class="compare-row"><div class="feature">Programme alimentaire</div><div><span class="check">✓</span></div><div class="active-col"><span class="check">✓</span> 4 semaines détaillé</div></div>
+      <div class="compare-row"><div class="feature">Suivi post-programme</div><div>1 mois offert</div><div class="active-col">×2 offert (2 mois)</div></div>
+      <div class="compare-row"><div class="feature">Durée du programme</div><div>4–6 semaines</div><div class="active-col">4 semaines structurées</div></div>
+      <div class="compare-row" style="background:rgba(184,134,11,0.02);">
+        <div class="feature" style="font-weight:500;">Prix</div>
+        <div style="font-family:var(--font-display);font-size:1.2rem;color:var(--text-dark);">50 000 DA</div>
+        <div class="active-col" style="font-family:var(--font-display);font-size:1.2rem;font-weight:500;">35 000 DA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Questions fréquentes</span>
+      <h2>Tout savoir sur SCULPT 4×4</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Pourquoi le SCULPT 4×4 est moins cher que le SCULPT X ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Le SCULPT 4×4 est un programme de 4 semaines avec moins de séances de cavitation et pressothérapie, mais il intègre des technologies supplémentaires (radiofréquence, électrostimulation, soin visage) absentes du SCULPT X. C'est une cure plus diversifiée, idéale pour une transformation globale complète corps + visage.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Combien de séances par semaine dois-je prévoir ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>En moyenne 2 à 3 séances par semaine, espacées de 2 à 3 jours pour laisser le corps éliminer et récupérer. Notre équipe s'adapte à votre planning professionnel et personnel pour vous proposer les créneaux les plus pratiques.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">La radiofréquence est-elle douloureuse ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Non, la radiofréquence est un soin chaud et confortable. Vous ressentez une chaleur agréable et progressive sur les zones traitées. L'intensité est toujours ajustée à votre confort. Certaines clientes décrivent une sensation de massage chaud très relaxant.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Peut-on combiner les 2 packs SCULPT X et SCULPT 4×4 ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Absolument. Pour des objectifs de transformation intensive, certaines clientes font le SCULPT 4×4 en premier pour la transformation globale, puis enchaînent avec des séances de SCULPT X pour entretenir et approfondir les résultats. Demandez-nous un programme combiné sur-mesure.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Comment se passe le soin visage & cou inclus ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>C'est un soin premium d'environ 60 minutes combinant radiofréquence visage pour le lifting, photothérapie LED pour l'éclat et l'anti-âge, et micro-courants tonifiants. Il est réalisé en semaine 3 du programme pour une peau lumineuse et ferme qui accompagne la transformation corporelle.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Les résultats durent-ils après le programme ? <span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Avec un suivi nutritionnel et une hygiène de vie adaptée, les résultats peuvent être durables. La radiofréquence continue d'agir jusqu'à 3 mois après le dernier soin. Le suivi mensuel offert ×2 vous aide à consolider vos acquis et à adapter votre routine pour maintenir les résultats.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tarif ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Investissement</span>
+      <h2>Tarif Cure SCULPT 4×4</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="tarif-wrap">
+      <div class="tarif-head">
+        <h3>Cure SCULPT 4×4 — Détail complet</h3>
+        <p>Valeur réelle vs. prix cure complète</p>
+      </div>
+      <div class="tarif-rows">
+        <div class="tarif-row"><span class="name">4 séances de Cavitation 9en1 (2 500 DA × 4)</span><span class="price">10 000 DA</span></div>
+        <div class="tarif-row"><span class="name">4 séances de Pressothérapie (2 000 DA × 4)</span><span class="price">8 000 DA</span></div>
+        <div class="tarif-row"><span class="name">2 séances de Radiofréquence corps (2 500 DA × 2)</span><span class="price">5 000 DA</span></div>
+        <div class="tarif-row"><span class="name">4 séances d'Électrostimulation (1 000 DA × 4)</span><span class="price">4 000 DA</span></div>
+        <div class="tarif-row"><span class="name">1 soin Visage & Cou lifting premium</span><span class="price">3 500 DA</span></div>
+        <div class="tarif-row"><span class="name">2 consultations nutritionnelles</span><span class="price">4 000 DA</span></div>
+        <div class="tarif-row"><span class="name">Programme alimentaire 4 semaines détaillé</span><span class="price">3 000 DA</span></div>
+        <div class="tarif-row"><span class="name">Suivi mensuel ×2 (offert)</span><span class="free">Offert</span></div>
+      </div>
+      <div class="tarif-foot">
+        <div>
+          <span class="label">Prix Cure SCULPT 4×4</span>
+          <p class="val">Valeur réelle totale : 37 500 DA</p>
+        </div>
+        <div class="total">
+          <span class="curr">DA</span>
+          <span class="amount">35 000</span>
+          <span class="old">40 000 DA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <h2>4 semaines pour votre <em>transformation totale</em></h2>
+  <p>La Cure SCULPT 4×4 est faite pour les femmes déterminées. Commencez dès aujourd'hui et voyez la différence.</p>
+  <div class="cta-actions">
+    <a href="#reservation" class="btn-gold-dark">✦ Démarrer ma cure SCULPT 4×4</a>
+    <a href="/" class="btn-outline-light">← Retour au site</a>
+  </div>
+</section>
+
+<!-- ── Formulaire ── -->
+<section class="form-section" id="reservation">
+  <div class="form-container" id="form-wrap">
+    <h2 class="form-title">Réserver la Cure SCULPT 4×4</h2>
+    <p class="form-subtitle">Remplissez ce formulaire et nous vous recontactons sous 24h pour organiser votre programme personnalisé.</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone *</label>
+          <input type="tel" id="tel" name="telephone" placeholder="0x xx xx xx xx" required />
+        </div>
+        <div class="form-group">
+          <label for="age">Âge</label>
+          <input type="number" id="age" name="age" placeholder="Votre âge" min="18" max="80" />
+        </div>
+        <div class="form-group full">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" />
+        </div>
+        <div class="form-group full">
+          <label for="date">Date de début souhaitée</label>
+          <input type="date" id="date" name="preferred_date" />
+        </div>
+        <div class="form-group full">
+          <label for="objectif">Objectif principal</label>
+          <select id="objectif" name="message">
+            <option value="">Sélectionnez votre objectif</option>
+            <option value="Perte de poids globale">Perte de poids globale</option>
+            <option value="Affinage silhouette">Affinage de la silhouette</option>
+            <option value="Réduction cellulite">Réduction de la cellulite</option>
+            <option value="Raffermissement peau">Raffermissement de la peau</option>
+            <option value="Transformation complète corps + visage">Transformation complète corps + visage</option>
+            <option value="Entretien post-amincissement">Entretien post-amincissement</option>
+          </select>
+        </div>
+      </div>
+      <div id="form-error" class="error-msg" style="display:none;"></div>
+      <button type="submit" class="btn-gold" style="width:100%;justify-content:center;margin-top:8px;" id="submitBtn">
+        <span id="btnText">✦ Réserver ma Cure SCULPT 4×4</span>
+      </button>
+      <p class="form-note">En soumettant, vous acceptez d'être recontactée. Vos données restent strictement confidentielles.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer-mini">
+  <p>© 2025 <a href="/">Silhouette's Secret</a> — Espace 100% Féminin · Cabinet Minceur & Nutrition</p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.06 });
+
+  document.querySelectorAll('.prog-card, .ba-card, .week-col, .faq-item, .tarif-wrap, .compare-table, .pillar').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    obs.observe(el);
+  });
+
+  // Date min
+  const d = document.getElementById('date');
+  if (d) d.min = new Date().toISOString().split('T')[0];
+
+  // Form
+  document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const errDiv = document.getElementById('form-error');
+    errDiv.style.display = 'none';
+
+    const objectifEl = document.getElementById('objectif');
+    const data = {
+      prenom: document.getElementById('prenom').value.trim(),
+      nom: document.getElementById('nom').value.trim(),
+      telephone: document.getElementById('tel').value.trim(),
+      age: document.getElementById('age').value,
+      email: document.getElementById('email').value.trim(),
+      preferred_date: document.getElementById('date').value,
+      message: objectifEl ? objectifEl.value : '',
+      services: 'Cure SCULPT 4X4',
+    };
+
+    if (!data.prenom || !data.nom || !data.telephone) {
+      errDiv.textContent = 'Veuillez remplir les champs obligatoires : prénom, nom et téléphone.';
+      errDiv.style.display = 'block';
+      return;
+    }
+
+    btnText.textContent = '⋯ Envoi en cours...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/reservation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d.detail || d.message || 'Erreur serveur');
+      }
+      document.getElementById('form-wrap').innerHTML = `
+        <div class="success-msg">
+          <span class="icon">✦</span>
+          <h3>Demande envoyée !</h3>
+          <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 20px;"></div>
+          <p>Merci <strong style="color:var(--gold-deep)">${data.prenom}</strong>, votre demande pour la Cure <strong>SCULPT 4×4</strong> a bien été reçue.</p>
+          <p>Nous vous contacterons au <strong style="color:var(--text-dark)">${data.telephone}</strong> sous 24h.</p>
+        </div>`;
+    } catch (err) {
+      errDiv.textContent = err.message || 'Une erreur est survenue. Veuillez réessayer.';
+      errDiv.style.display = 'block';
+      btnText.textContent = '✦ Réserver ma Cure SCULPT 4×4';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

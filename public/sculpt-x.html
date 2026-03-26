@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pack SCULPT X — Silhouette's Secret</title>
+  <meta name="description" content="Programme sculpture intensif : Cavitation 9en1, Pressothérapie, Nutrition. Résultats visibles dès les premières séances." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Variables ── */
+    :root {
+      --gold-deep: #8B6914;
+      --gold: #B8860B;
+      --gold-light: #C9A84C;
+      --gold-pale: #D4AF6A;
+      --gold-shimmer: #E8C97A;
+      --cream: #FAF7F2;
+      --cream-dark: #F2EBE0;
+      --white: #FFFFFF;
+      --text-dark: #2C2218;
+      --text-medium: #5C4A35;
+      --text-light: #8B7355;
+      --border: rgba(184,134,11,0.22);
+      --border-strong: rgba(184,134,11,0.5);
+      --shadow-deep: 0 20px 60px rgba(44,34,24,0.12);
+      --radius: 12px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Jost', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text-dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--gold-shimmer); color: var(--text-dark); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-light); border-radius: 3px; }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      background: rgba(250,247,242,0.94);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--gold-deep); }
+    .nav-sub { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); display: block; }
+    .nav-badge {
+      padding: 7px 18px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: var(--radius-full);
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 110px 24px 70px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 15% 50%, rgba(184,134,11,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 60% at 85% 20%, rgba(212,175,106,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 70% 85%, rgba(184,134,11,0.05) 0%, transparent 60%);
+    }
+    /* Animated grain */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1140px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 16px;
+      background: rgba(184,134,11,0.08); border: 1px solid var(--border);
+      border-radius: var(--radius-full); margin-bottom: 24px;
+    }
+    .hero-eyebrow span { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 300; line-height: 0.95;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .hero-title .x { color: var(--gold-deep); font-style: italic; }
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 300; font-style: italic;
+      color: var(--text-light); margin-bottom: 28px;
+    }
+    .hero-desc {
+      font-size: 0.92rem; font-weight: 300; line-height: 1.75;
+      color: var(--text-medium); max-width: 460px; margin-bottom: 36px;
+    }
+    .hero-price-block {
+      display: flex; align-items: baseline; gap: 10px; margin-bottom: 36px;
+      padding: 22px 28px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 24px rgba(184,134,11,0.08);
+    }
+    .hero-price-block .currency { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); }
+    .hero-price-block .amount { font-family: var(--font-display); font-size: 3.2rem; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+    .hero-price-block .old { font-size: 0.9rem; color: var(--text-light); text-decoration: line-through; }
+    .hero-price-block .save {
+      margin-left: auto;
+      padding: 5px 12px;
+      background: rgba(34,139,34,0.08); color: #2d7a2d;
+      border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 500;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 34px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border: none; border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 24px rgba(139,105,20,0.32);
+      text-decoration: none;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(139,105,20,0.42); filter: brightness(1.05); }
+    .btn-outline-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: transparent; color: var(--gold);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-full);
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s ease; text-decoration: none;
+    }
+    .btn-outline-gold:hover { background: rgba(184,134,11,0.06); transform: translateY(-1px); }
+
+    /* Hero visual */
+    .hero-visual { position: relative; }
+    .hero-visual-main {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+      position: relative;
+    }
+    .hero-visual-main::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold-shimmer), var(--gold-deep));
+    }
+    .pack-visual-header {
+      padding: 28px 28px 20px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.05) 0%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .pack-visual-header .pack-label {
+      font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 6px; display: block;
+    }
+    .pack-visual-header h2 {
+      font-family: var(--font-display); font-size: 2.2rem; font-weight: 400;
+      color: var(--text-dark); margin-bottom: 4px;
+    }
+    .pack-visual-header p { font-size: 0.82rem; font-weight: 300; color: var(--text-light); }
+    .pack-visual-stats {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .pack-stat {
+      padding: 18px 16px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .pack-stat:last-child { border-right: none; }
+    .pack-stat .stat-num {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 300;
+      color: var(--gold-deep); line-height: 1; display: block;
+    }
+    .pack-stat .stat-label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
+    .pack-visual-body { padding: 22px 28px; }
+    .mini-include {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; border-bottom: 1px solid rgba(184,134,11,0.08);
+      font-size: 0.82rem; font-weight: 300; color: var(--text-medium);
+    }
+    .mini-include:last-child { border-bottom: none; }
+    .mini-include .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; }
+
+    .floating-badge {
+      position: absolute; top: -14px; right: 24px;
+      padding: 8px 18px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: var(--radius-full);
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(139,105,20,0.35);
+    }
+
+    /* ── Section base ── */
+    .section { padding: 80px 24px; }
+    .section-alt { background: var(--white); }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .eyebrow { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: 12px; }
+    .section-head h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--text-dark); margin-bottom: 14px; }
+    .section-head p { font-size: 0.9rem; font-weight: 300; color: var(--text-medium); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .divider { width: 70px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 14px auto; }
+
+    /* ── Programme détaillé ── */
+    .programme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .prog-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .prog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-deep); border-color: var(--border-strong); }
+    .prog-card-header {
+      padding: 24px 26px 18px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.05) 0%, transparent);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .prog-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(184,134,11,0.1); border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--gold-light);
+    }
+    .prog-card-header h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 4px; color: var(--text-dark); }
+    .prog-card-header p { font-size: 0.78rem; font-weight: 300; color: var(--text-light); line-height: 1.5; }
+    .prog-card-body { padding: 20px 26px; }
+    .prog-sessions {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 6px 14px;
+      background: rgba(184,134,11,0.07); border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.72rem; font-weight: 500; color: var(--gold-deep);
+      letter-spacing: 0.08em; margin-bottom: 14px;
+    }
+    .prog-details { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .prog-details li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 0.82rem; font-weight: 300; color: var(--text-medium); line-height: 1.5;
+    }
+    .prog-details li::before { content: '◆'; font-size: 0.4rem; color: var(--gold-light); margin-top: 6px; flex-shrink: 0; }
+    .prog-result {
+      margin-top: 16px; padding: 12px 14px;
+      background: rgba(184,134,11,0.04); border-left: 2px solid var(--gold-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.78rem; font-weight: 300; font-style: italic; color: var(--gold-deep); line-height: 1.5;
+    }
+
+    /* ── Avant / Après ── */
+    .avant-apres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .ba-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: all 0.35s ease;
+    }
+    .ba-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+    .ba-images { display: grid; grid-template-columns: 1fr 1fr; }
+    .ba-img {
+      aspect-ratio: 3/4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+      position: relative; overflow: hidden;
+    }
+    .ba-img.before {
+      background: linear-gradient(145deg, #ece5d8, #ddd5c4);
+      color: var(--text-light);
+      border-right: 1px solid var(--border);
+    }
+    .ba-img.after {
+      background: linear-gradient(145deg, rgba(184,134,11,0.12), rgba(212,175,106,0.2));
+      color: var(--gold-deep);
+    }
+    .ba-img .img-label {
+      position: absolute; bottom: 8px;
+      padding: 3px 10px;
+      background: rgba(255,255,255,0.85);
+      border-radius: var(--radius-full);
+      font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dark);
+    }
+    /* Silhouette SVG illustration for before/after */
+    .ba-silhouette { opacity: 0.25; }
+    .ba-silhouette.after-fig { opacity: 0.55; }
+    .ba-card-info { padding: 16px 18px; border-top: 1px solid var(--border); }
+    .ba-card-info .zone { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+    .ba-card-info .result-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--text-dark); }
+    .ba-card-info .sessions-note { font-size: 0.72rem; font-weight: 300; color: var(--text-light); margin-top: 2px; }
+
+    .disclaimer {
+      text-align: center; margin-top: 32px;
+      padding: 16px 24px;
+      background: rgba(184,134,11,0.04); border: 1px solid var(--border);
+      border-radius: var(--radius); max-width: 640px; margin: 32px auto 0;
+      font-size: 0.75rem; font-weight: 300; color: var(--text-light); line-height: 1.6; font-style: italic;
+    }
+
+    /* ── Étapes du parcours ── */
+    .steps { display: flex; flex-direction: column; gap: 0; max-width: 760px; margin: 0 auto; position: relative; }
+    .steps::before {
+      content: ''; position: absolute; left: 23px; top: 24px; bottom: 24px;
+      width: 1px; background: linear-gradient(180deg, transparent, var(--gold-light) 20%, var(--gold-light) 80%, transparent);
+    }
+    .step { display: flex; gap: 24px; align-items: flex-start; padding: 28px 0; }
+    .step-num {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light));
+      color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 400;
+      box-shadow: 0 4px 16px rgba(139,105,20,0.3); position: relative; z-index: 1;
+    }
+    .step-content { flex: 1; padding-top: 8px; }
+    .step-content h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; margin-bottom: 6px; }
+    .step-content p { font-size: 0.84rem; font-weight: 300; color: var(--text-medium); line-height: 1.65; }
+    .step-content .step-tag {
+      display: inline-block; margin-bottom: 8px;
+      padding: 3px 12px;
+      background: rgba(184,134,11,0.08); border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .faq-item.open { border-color: var(--border-strong); }
+    .faq-q {
+      padding: 18px 22px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-size: 0.9rem; font-weight: 400; color: var(--text-dark);
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--gold-deep); }
+    .faq-icon { font-size: 0.9rem; color: var(--gold-light); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      padding: 0 22px; max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 22px 18px; }
+    .faq-a p { font-size: 0.84rem; font-weight: 300; color: var(--text-medium); line-height: 1.7; }
+
+    /* ── Tarif récap ── */
+    .tarif-recap {
+      max-width: 680px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-deep);
+    }
+    .tarif-recap-header {
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.07) 0%, rgba(212,175,106,0.06) 100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .tarif-recap-header h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin-bottom: 4px; }
+    .tarif-recap-header p { font-size: 0.8rem; font-weight: 300; color: var(--text-light); }
+    .tarif-lines { padding: 8px 32px; }
+    .tarif-line {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; border-bottom: 1px solid rgba(184,134,11,0.08);
+    }
+    .tarif-line:last-child { border-bottom: none; }
+    .tarif-line .t-name { font-size: 0.86rem; font-weight: 300; color: var(--text-medium); }
+    .tarif-line .t-price { font-family: var(--font-display); font-size: 1rem; font-weight: 400; color: var(--text-dark); }
+    .tarif-total {
+      padding: 22px 32px;
+      background: linear-gradient(135deg, rgba(184,134,11,0.08) 0%, transparent);
+      border-top: 1px solid var(--border-strong);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tarif-total .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .tarif-total .total-price { display: flex; align-items: baseline; gap: 8px; }
+    .tarif-total .total-price .curr { font-family: var(--font-display); font-size: 1rem; color: var(--gold); }
+    .tarif-total .total-price .amount { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--gold-deep); line-height: 1; }
+    .tarif-total .total-price .old { font-size: 0.9rem; color: var(--text-light); text-decoration: line-through; }
+
+    /* ── CTA final ── */
+    .cta-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(184,134,11,0.05) 0%, rgba(212,175,106,0.07) 100%);
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: 'SCULPT X';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: var(--font-display); font-size: clamp(6rem, 15vw, 14rem); font-weight: 300;
+      color: rgba(184,134,11,0.04); white-space: nowrap; pointer-events: none;
+      letter-spacing: 0.1em;
+    }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 16px; position: relative; }
+    .cta-section h2 em { color: var(--gold-deep); font-style: italic; }
+    .cta-section p { font-size: 0.92rem; font-weight: 300; color: var(--text-medium); max-width: 480px; margin: 0 auto 40px; line-height: 1.7; position: relative; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* ── Form ── */
+    .form-section { padding: 80px 24px; background: var(--white); }
+    .form-container {
+      max-width: 680px; margin: 0 auto;
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 40px;
+      box-shadow: var(--shadow-deep);
+    }
+    .form-title { font-family: var(--font-display); font-size: 2rem; font-weight: 300; margin-bottom: 8px; }
+    .form-subtitle { font-size: 0.84rem; font-weight: 300; color: var(--text-light); margin-bottom: 32px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px 16px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); font-family: var(--font-body);
+      font-size: 0.88rem; font-weight: 300; color: var(--text-dark);
+      outline: none; transition: all 0.25s; width: 100%; appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(184,134,11,0.07);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8860B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor: pointer;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-note { font-size: 0.72rem; font-weight: 300; color: var(--text-light); text-align: center; margin-top: 12px; line-height: 1.6; }
+    .success-msg { text-align: center; padding: 48px 24px; }
+    .success-msg .icon { font-size: 2.8rem; display: block; margin-bottom: 16px; }
+    .success-msg h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold-deep); margin-bottom: 10px; }
+    .success-msg p { font-size: 0.87rem; font-weight: 300; color: var(--text-medium); }
+    .error-msg {
+      padding: 12px 16px;
+      background: rgba(192,57,43,0.05); border: 1px solid rgba(192,57,43,0.2);
+      border-radius: var(--radius); font-size: 0.82rem; color: #c0392b; margin-top: 4px;
+    }
+
+    /* ── Footer ── */
+    .footer-mini {
+      background: var(--text-dark); padding: 32px 24px; text-align: center;
+    }
+    .footer-mini p { font-size: 0.75rem; font-weight: 300; color: rgba(255,255,255,0.35); }
+    .footer-mini a { color: var(--gold-pale); text-decoration: none; transition: color 0.2s; }
+    .footer-mini a:hover { color: var(--gold-shimmer); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.22s; }
+    .delay-3 { animation-delay: 0.34s; }
+    .delay-4 { animation-delay: 0.46s; }
+    .delay-5 { animation-delay: 0.58s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .hero-title { font-size: 3.5rem; }
+      .programme-grid { grid-template-columns: 1fr; }
+      .avant-apres-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 12px 18px; }
+      .section { padding: 60px 18px; }
+      .avant-apres-grid { grid-template-columns: 1fr; }
+      .hero { padding: 100px 18px 60px; }
+      .form-container { padding: 28px 20px; }
+      .pack-visual-stats { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div>
+    <span class="nav-brand">Silhouette's Secret</span>
+    <span class="nav-sub">Cabinet Féminin — Minceur & Nutrition</span>
+  </div>
+  <a href="#reservation" class="nav-badge">✦ Réserver ce pack</a>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-up"><span>✦ Best-seller · Pack Minceur</span></div>
+      <h1 class="hero-title fade-up delay-1">SCULPT<span class="x"> X</span></h1>
+      <p class="hero-tagline fade-up delay-2">Le programme sculpture intensif</p>
+      <p class="hero-desc fade-up delay-3">
+        Un programme combiné sur-mesure alliant les meilleures technologies de minceur — Cavitation 9en1, Pressothérapie et suivi nutritionnel — pour sculpter, affiner et transformer votre silhouette durablement.
+      </p>
+      <div class="hero-price-block fade-up delay-4">
+        <span class="currency">DA</span>
+        <span class="amount">50 000</span>
+        <span class="old">55 000 DA</span>
+        <span class="save">Économie 5 000 DA</span>
+      </div>
+      <div class="hero-actions fade-up delay-5">
+        <a href="#reservation" class="btn-gold">✦ Réserver ce pack</a>
+        <a href="#programme" class="btn-outline-gold">Voir le programme</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-2">
+      <div class="floating-badge">✦ Best-seller</div>
+      <div class="hero-visual-main">
+        <div class="pack-visual-header">
+          <span class="pack-label">Pack signature</span>
+          <h2>SCULPT X</h2>
+          <p>Programme sculpture intensif — résultats dès la 3e séance</p>
+        </div>
+        <div class="pack-visual-stats">
+          <div class="pack-stat">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Cavitations</span>
+          </div>
+          <div class="pack-stat">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Pressothérapies</span>
+          </div>
+          <div class="pack-stat">
+            <span class="stat-num">1</span>
+            <span class="stat-label">Bilan Nutrition</span>
+          </div>
+        </div>
+        <div class="pack-visual-body">
+          <div class="mini-include"><div class="dot"></div>8 séances de Cavitation 9en1</div>
+          <div class="mini-include"><div class="dot"></div>6 séances de Pressothérapie</div>
+          <div class="mini-include"><div class="dot"></div>1 bilan nutritionnel complet</div>
+          <div class="mini-include"><div class="dot"></div>Programme alimentaire personnalisé</div>
+          <div class="mini-include"><div class="dot"></div>Suivi mensuel offert</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Programme détaillé ── -->
+<section class="section section-alt" id="programme">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Contenu du programme</span>
+      <h2>Ce qui est inclus dans SCULPT X</h2>
+      <div class="divider"></div>
+      <p>Chaque élément du programme est pensé pour maximiser vos résultats en synergie</p>
+    </div>
+    <div class="programme-grid">
+      <div class="prog-card">
+        <div class="prog-card-header">
+          <div class="prog-icon">◎</div>
+          <div>
+            <h3>Cavitation 9en1</h3>
+            <p>Ultrasons & multi-technologies corps</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-sessions">✦ 8 séances incluses</div>
+          <ul class="prog-details">
+            <li>Ultrasons cavitants pour détruire les cellules graisseuses en profondeur</li>
+            <li>Radiofréquence bipolaire pour raffermir la peau simultanément</li>
+            <li>Vacuum aspirant pour drainer et lisser la cellulite</li>
+            <li>Électroporation, photon LED rouge/vert/bleu selon les zones</li>
+            <li>Ciblage précis : ventre, hanches, cuisses, bras, dos</li>
+          </ul>
+          <div class="prog-result">Résultat attendu : réduction visible du volume, peau plus ferme et lissée dès les premières séances.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-header">
+          <div class="prog-icon">✦</div>
+          <div>
+            <h3>Pressothérapie</h3>
+            <p>Drainage lymphatique par compression</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-sessions">✦ 6 séances incluses</div>
+          <ul class="prog-details">
+            <li>Combinaison sur mesure avec les séances de cavitation pour amplifier les effets</li>
+            <li>Drainage lymphatique profond : élimine toxines et liquides stagnants</li>
+            <li>Réduit la rétention d'eau et l'effet « jambes lourdes »</li>
+            <li>Améliore la circulation sanguine et lymphatique</li>
+            <li>Sensation de légèreté et corps dégonflé dès la 1ère séance</li>
+          </ul>
+          <div class="prog-result">Résultat attendu : réduction de la rétention d'eau, silhouette affinée, jambes et bras dégonflés.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-header">
+          <div class="prog-icon">◈</div>
+          <div>
+            <h3>Bilan Nutritionnel Complet</h3>
+            <p>Consultation avec notre nutritionniste diplômée</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-sessions">✦ 1 bilan complet + programme</div>
+          <ul class="prog-details">
+            <li>Analyse de vos habitudes alimentaires et de votre mode de vie</li>
+            <li>Calcul de vos besoins caloriques réels et de votre IMC</li>
+            <li>Identification des déclencheurs de prise de poids</li>
+            <li>Programme alimentaire écrit et personnalisé selon vos goûts</li>
+            <li>Conseils pratiques pour intégrer les changements progressivement</li>
+          </ul>
+          <div class="prog-result">Résultat attendu : une alimentation adaptée qui soutient et prolonge les effets des soins.</div>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-card-header">
+          <div class="prog-icon">❋</div>
+          <div>
+            <h3>Suivi Mensuel Offert</h3>
+            <p>Accompagnement après le programme</p>
+          </div>
+        </div>
+        <div class="prog-card-body">
+          <div class="prog-sessions">✦ Inclus sans supplément</div>
+          <ul class="prog-details">
+            <li>Rendez-vous de suivi 1 mois après la fin du programme</li>
+            <li>Bilan des résultats obtenus et mesures comparatives</li>
+            <li>Ajustements du programme alimentaire si nécessaire</li>
+            <li>Recommandations de maintenance personnalisées</li>
+            <li>Priorité pour les prochaines réservations</li>
+          </ul>
+          <div class="prog-result">Un accompagnement au-delà du programme pour des résultats qui durent vraiment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Avant / Après ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Résultats réels</span>
+      <h2>Avant & Après SCULPT X</h2>
+      <div class="divider"></div>
+      <p>Des transformations visibles obtenues par nos clientes après le programme complet</p>
+    </div>
+    <div class="avant-apres-grid">
+
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-img before">
+            <svg class="ba-silhouette" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="13" ry="13" fill="#8B7355"/>
+              <path d="M18 35 C12 40 10 55 11 75 L13 110 L25 108 L27 82 L33 82 L35 108 L47 110 L49 75 C50 55 48 40 42 35 C38 32 34 31 30 31 C26 31 22 32 18 35Z" fill="#8B7355"/>
+              <path d="M11 45 C5 47 2 55 4 62 L8 62" fill="none" stroke="#8B7355" stroke-width="4"/>
+              <path d="M49 45 C55 47 58 55 56 62 L52 62" fill="none" stroke="#8B7355" stroke-width="4"/>
+            </svg>
+            <span class="img-label">Avant</span>
+          </div>
+          <div class="ba-img after">
+            <svg class="ba-silhouette after-fig" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="13" ry="13" fill="#8B6914"/>
+              <path d="M20 35 C15 40 13 55 14 75 L16 110 L26 108 L28 82 L32 82 L34 108 L44 110 L46 75 C47 55 45 40 40 35 C37 32 34 31 30 31 C26 31 23 32 20 35Z" fill="#8B6914"/>
+              <path d="M14 45 C8 47 5 55 7 62 L10 62" fill="none" stroke="#8B6914" stroke-width="3.5"/>
+              <path d="M46 45 C52 47 55 55 53 62 L50 62" fill="none" stroke="#8B6914" stroke-width="3.5"/>
+            </svg>
+            <span class="img-label">Après</span>
+          </div>
+        </div>
+        <div class="ba-card-info">
+          <div class="zone">Ventre & Hanches</div>
+          <div class="result-text">−6 cm de tour de taille</div>
+          <div class="sessions-note">Après 8 séances · Pack SCULPT X</div>
+        </div>
+      </div>
+
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-img before">
+            <svg class="ba-silhouette" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="13" ry="13" fill="#8B7355"/>
+              <path d="M17 35 C11 40 9 55 10 75 L12 110 L24 108 L26 82 L34 82 L36 108 L48 110 L50 75 C51 55 49 40 43 35 C39 32 35 31 30 31 C25 31 21 32 17 35Z" fill="#8B7355"/>
+              <path d="M10 45 C4 47 1 55 3 62 L7 62" fill="none" stroke="#8B7355" stroke-width="4.5"/>
+              <path d="M50 45 C56 47 59 55 57 62 L53 62" fill="none" stroke="#8B7355" stroke-width="4.5"/>
+            </svg>
+            <span class="img-label">Avant</span>
+          </div>
+          <div class="ba-img after">
+            <svg class="ba-silhouette after-fig" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="13" ry="13" fill="#8B6914"/>
+              <path d="M21 35 C16 40 14 55 15 75 L17 110 L27 108 L29 82 L31 82 L33 108 L43 110 L45 75 C46 55 44 40 39 35 C36 32 33 31 30 31 C27 31 24 32 21 35Z" fill="#8B6914"/>
+              <path d="M15 45 C9 47 6 55 8 62 L11 62" fill="none" stroke="#8B6914" stroke-width="3"/>
+              <path d="M45 45 C51 47 54 55 52 62 L49 62" fill="none" stroke="#8B6914" stroke-width="3"/>
+            </svg>
+            <span class="img-label">Après</span>
+          </div>
+        </div>
+        <div class="ba-card-info">
+          <div class="zone">Cuisses & Bras</div>
+          <div class="result-text">Peau raffermie & lissée</div>
+          <div class="sessions-note">Après 8 séances · Pack SCULPT X</div>
+        </div>
+      </div>
+
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-img before">
+            <svg class="ba-silhouette" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="12" ry="12" fill="#8B7355"/>
+              <path d="M18 33 C13 38 11 52 12 72 L14 108 L25 106 L28 80 L32 80 L35 106 L46 108 L48 72 C49 52 47 38 42 33 C38 30 34 29 30 29 C26 29 22 30 18 33Z" fill="#8B7355"/>
+              <path d="M12 43 C6 45 3 53 5 60 L9 60" fill="none" stroke="#8B7355" stroke-width="4"/>
+              <path d="M48 43 C54 45 57 53 55 60 L51 60" fill="none" stroke="#8B7355" stroke-width="4"/>
+            </svg>
+            <span class="img-label">Avant</span>
+          </div>
+          <div class="ba-img after">
+            <svg class="ba-silhouette after-fig" width="60" height="120" viewBox="0 0 60 120">
+              <ellipse cx="30" cy="18" rx="12" ry="12" fill="#8B6914"/>
+              <path d="M20 33 C15 38 13 52 14 72 L16 108 L26 106 L29 80 L31 80 L34 106 L44 108 L46 72 C47 52 45 38 40 33 C37 30 34 29 30 29 C26 29 23 30 20 33Z" fill="#8B6914"/>
+              <path d="M14 43 C8 45 5 53 7 60 L10 60" fill="none" stroke="#8B6914" stroke-width="3"/>
+              <path d="M46 43 C52 45 55 53 53 60 L50 60" fill="none" stroke="#8B6914" stroke-width="3"/>
+            </svg>
+            <span class="img-label">Après</span>
+          </div>
+        </div>
+        <div class="ba-card-info">
+          <div class="zone">Silhouette globale</div>
+          <div class="result-text">−4 kg · Silhouette sculptée</div>
+          <div class="sessions-note">Après programme complet · SCULPT X</div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">* Les résultats varient selon chaque personne, le métabolisme, le mode de vie et le respect du programme nutritionnel. Ces illustrations représentent des cas typiques observés. Les résultats ne sont pas garantis.</p>
+  </div>
+</section>
+
+<!-- ── Déroulement ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Votre parcours</span>
+      <h2>Comment se déroule le programme ?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <span class="step-tag">Semaine 1</span>
+          <h3>Bilan initial & consultation</h3>
+          <p>Première séance dédiée à votre bilan : mesures, photos initiales, consultation avec la nutritionniste, identification de vos zones cibles et définition de vos objectifs personnels.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <span class="step-tag">Semaines 1–4</span>
+          <h3>Séances de Cavitation 9en1</h3>
+          <p>8 séances espacées de 3 à 5 jours pour un travail en profondeur. Chaque séance cible les zones convenues et adapte l'intensité à votre progression. Combinées aux soins, les technologies travaillent en synergie.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <span class="step-tag">Séances alternées</span>
+          <h3>Pressothérapie & Drainage</h3>
+          <p>6 séances de pressothérapie alternées avec la cavitation pour maximiser l'élimination des graisses mobilisées. Le drainage accélère l'élimination naturelle et réduit l'inflammation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <span class="step-tag">En parallèle</span>
+          <h3>Suivi nutritionnel actif</h3>
+          <p>Votre programme alimentaire personnalisé est mis en place dès le début. La nutrition est la clé pour que les résultats durent. Notre nutritionniste reste disponible pour ajuster si besoin.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <span class="step-tag">1 mois après</span>
+          <h3>Bilan & suivi mensuel offert</h3>
+          <p>Rendez-vous de contrôle offert pour mesurer vos progrès, comparer les photos, et vous donner les recommandations pour maintenir et prolonger vos résultats.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Questions fréquentes</span>
+      <h2>Tout savoir sur SCULPT X</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          La cavitation est-elle douloureuse ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Non, la cavitation 9en1 est totalement indolore. Vous pourrez ressentir une légère chaleur et parfois un léger bourdonnement dû aux ultrasons, ce qui est tout à fait normal. La séance est très confortable et se fait en position allongée.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          À partir de quand verrai-je des résultats ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Les premières sensations de légèreté apparaissent souvent dès la 1ère séance de pressothérapie. Des résultats visuels commencent à être visibles entre la 3e et la 5e séance de cavitation, et s'amplifient progressivement jusqu'à la fin du programme.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Combien de temps dure chaque séance ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Une séance de cavitation dure entre 45 et 60 minutes selon les zones traitées. La pressothérapie dure 30 à 45 minutes. Elles peuvent parfois être combinées lors d'une même visite selon votre planning.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Y a-t-il des contre-indications ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Oui, certaines situations nécessitent une précaution : grossesse, allaitement, implants métalliques dans la zone traitée, troubles de coagulation, certaines maladies cardiaques. Un questionnaire de santé est rempli lors du bilan initial pour assurer votre sécurité.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Le pack est-il réservé aux femmes ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Oui, Silhouette's Secret est un espace 100% féminin. Nos soins, notre cabinet et notre équipe sont exclusivement dédiés aux femmes, dans un cadre intime, bienveillant et sécurisé.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Puis-je payer en plusieurs fois ? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>Oui, nous proposons des facilités de paiement. Contactez-nous lors de votre prise de rendez-vous pour discuter des modalités adaptées à votre situation.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tarif récap ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">✦ Investissement</span>
+      <h2>Tarif SCULPT X</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="tarif-recap">
+      <div class="tarif-recap-header">
+        <h3>Pack SCULPT X — Détail des soins</h3>
+        <p>Valeur cumulée des séances individuelles vs. prix pack</p>
+      </div>
+      <div class="tarif-lines">
+        <div class="tarif-line">
+          <span class="t-name">8 séances de Cavitation 9en1 (2 500 DA × 8)</span>
+          <span class="t-price">20 000 DA</span>
+        </div>
+        <div class="tarif-line">
+          <span class="t-name">6 séances de Pressothérapie (2 000 DA × 6)</span>
+          <span class="t-price">12 000 DA</span>
+        </div>
+        <div class="tarif-line">
+          <span class="t-name">1 bilan nutritionnel complet</span>
+          <span class="t-price">2 000 DA</span>
+        </div>
+        <div class="tarif-line">
+          <span class="t-name">Programme alimentaire personnalisé</span>
+          <span class="t-price">3 000 DA</span>
+        </div>
+        <div class="tarif-line">
+          <span class="t-name">Suivi mensuel (offert)</span>
+          <span class="t-price" style="color: #2d7a2d;">Offert</span>
+        </div>
+      </div>
+      <div class="tarif-total">
+        <div>
+          <span class="label">Prix du pack SCULPT X</span>
+          <p style="font-size:0.74rem;color:var(--text-light);margin-top:3px;">Valeur réelle : 37 000 DA</p>
+        </div>
+        <div class="total-price">
+          <span class="curr">DA</span>
+          <span class="amount">50 000</span>
+          <span class="old">55 000 DA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <h2>Prête à révéler votre <em>meilleure silhouette</em> ?</h2>
+  <p>Rejoignez nos clientes qui ont transformé leur corps et leur confiance avec le pack SCULPT X.</p>
+  <div class="cta-actions">
+    <a href="#reservation" class="btn-gold">✦ Réserver mon SCULPT X</a>
+    <a href="/" class="btn-outline-gold">← Retour au site</a>
+  </div>
+</section>
+
+<!-- ── Formulaire ── -->
+<section class="form-section" id="reservation">
+  <div class="form-container" id="form-wrap">
+    <h2 class="form-title">Réserver le Pack SCULPT X</h2>
+    <p class="form-subtitle">Remplissez ce formulaire — nous vous recontactons sous 24h pour confirmer votre rendez-vous.</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone *</label>
+          <input type="tel" id="tel" name="telephone" placeholder="0x xx xx xx xx" required />
+        </div>
+        <div class="form-group">
+          <label for="age">Âge</label>
+          <input type="number" id="age" name="age" placeholder="Votre âge" min="18" max="80" />
+        </div>
+        <div class="form-group full">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" />
+        </div>
+        <div class="form-group full">
+          <label for="date">Date souhaitée</label>
+          <input type="date" id="date" name="preferred_date" />
+        </div>
+        <div class="form-group full">
+          <label for="msg">Message (optionnel)</label>
+          <textarea id="msg" name="message" placeholder="Vos questions, objectifs ou disponibilités..."></textarea>
+        </div>
+      </div>
+      <div id="form-error" class="error-msg" style="display:none;margin-bottom:12px;"></div>
+      <button type="submit" class="btn-gold" style="width:100%;justify-content:center;margin-top:4px;" id="submitBtn">
+        <span id="btnText">✦ Envoyer ma demande — Pack SCULPT X</span>
+      </button>
+      <p class="form-note">En soumettant, vous acceptez d'être recontactée par notre équipe. Données confidentielles.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer-mini">
+  <p>© 2025 <a href="/">Silhouette's Secret</a> — Espace 100% Féminin · Cabinet Minceur & Nutrition</p>
+</footer>
+
+<script>
+  // FAQ accordion
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.prog-card, .ba-card, .step, .faq-item, .tarif-recap').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+
+  // Set min date
+  const dateInput = document.getElementById('date');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+  // Form submit
+  document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const errDiv = document.getElementById('form-error');
+    errDiv.style.display = 'none';
+
+    const data = {
+      prenom: document.getElementById('prenom').value.trim(),
+      nom: document.getElementById('nom').value.trim(),
+      telephone: document.getElementById('tel').value.trim(),
+      age: document.getElementById('age').value,
+      email: document.getElementById('email').value.trim(),
+      preferred_date: document.getElementById('date').value,
+      message: document.getElementById('msg').value.trim(),
+      services: 'Pack SCULPT X',
+    };
+
+    if (!data.prenom || !data.nom || !data.telephone) {
+      errDiv.textContent = 'Veuillez remplir les champs obligatoires : prénom, nom et téléphone.';
+      errDiv.style.display = 'block';
+      return;
+    }
+
+    btnText.textContent = '⋯ Envoi en cours...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/reservation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d.detail || d.message || 'Erreur serveur');
+      }
+      // Success
+      document.getElementById('form-wrap').innerHTML = `
+        <div class="success-msg">
+          <span class="icon">✦</span>
+          <h3>Demande envoyée !</h3>
+          <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 20px;"></div>
+          <p>Merci <strong style="color:var(--gold-deep)">${data.prenom}</strong>, votre demande pour le pack <strong>SCULPT X</strong> a bien été reçue.</p>
+          <p style="margin-top:10px;">Nous vous contacterons au <strong style="color:var(--text-dark)">${data.telephone}</strong> sous 24h pour confirmer.</p>
+        </div>`;
+    } catch (err) {
+      errDiv.textContent = err.message || 'Une erreur est survenue. Veuillez réessayer.';
+      errDiv.style.display = 'block';
+      btnText.textContent = '✦ Envoyer ma demande — Pack SCULPT X';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
